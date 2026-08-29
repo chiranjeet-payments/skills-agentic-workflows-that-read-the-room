@@ -17,6 +17,7 @@ network:
   allowed:
     - github.blog
     - github.com
+    - awesome-copilot.github.io
 ---
 
 # Update GitHub Info Workflow
@@ -31,20 +32,23 @@ You are an agent that helps keep GitHub information up-to-date by fetching the l
 
 3. **Fetch changelog entries**: Use web-fetch to retrieve recent changelog entries from https://github.blog/changelog/
 
-4. **Analyze and update content**: Based on the information gathered, update `site/content/github-info.md` with:
+4. **Fetch Awesome Copilot workflows**: Use web-fetch to retrieve workflow patterns from https://awesome-copilot.github.io/workflows/
+
+5. **Analyze and update content**: Based on the information gathered, update `site/content/github-info.md` with:
    - Latest GitHub feature announcements
-   - Recent changelog entries  
+   - Recent changelog entries
+   - Relevant Awesome Copilot workflow patterns
    - Key updates presented in a clear, accessible format
    - Ensure consistency with the style guidelines from `notes/mona-notes.md`
 
-5. **Create a pull request**: Use the create-pull-request tool with safe-outputs to:
+6. **Create a pull request**: Use the create-pull-request tool with safe-outputs to:
    - Propose the changes for Mona to review
    - Include a descriptive summary of the updates in the PR description
    - Reference any significant changes or additions
 
 ## Important Guidelines
 
-- **External Content**: Use web-fetch to read all external public content from github.blog
+- **External Content**: Use web-fetch to read all external public content from github.blog and awesome-copilot.github.io
 - **Repository Content**: Use GitHub repository API tools (via gh-proxy) to read repository guidance and reference files instead of terminal commands
 - **Safe Changes**: All modifications are proposed via pull request with safe-outputs enabled — do not write directly to the main branch
 - **No CLI Tools**: Do not use terminal, shell, or CLI commands for file operations
