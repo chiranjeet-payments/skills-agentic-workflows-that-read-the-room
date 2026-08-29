@@ -28,9 +28,11 @@ Use these sources:
 - GitHub Blog: https://github.blog/latest/
 - GitHub Changelog: https://github.blog/changelog/
 
-Update `site/content/github-info.md` with concise, practical updates for readers and include source context when content comes from the GitHub Blog or GitHub Changelog.
-
-Open a pull request for Mona to review.
-Use a pull request title that mentions Mona or GitHub Info.
-Do not write directly to `main`;
-rely on `safe-outputs` with `create-pull-request`.
+Workflow instructions:
+- Use `web-fetch` to read the public guidance from the GitHub Blog and GitHub Changelog.
+- Use GitHub repository API tools to read repository guidance and reference files instead of terminal, CLI, or sandboxed commands.
+- Update `site/content/github-info.md` with concise, practical updates for readers and include source context when content comes from the GitHub Blog or GitHub Changelog.
+- Open a pull request for Mona to review before merging.
+- Use a pull request title that mentions Mona or GitHub Info.
+- Do not write directly to `main`; rely on `safe-outputs` with `create-pull-request` so the agent can propose changes without direct writes.
+- When the workflow creates a pull request, keep it focused on the GitHub Info page and clearly note the source of the update.
