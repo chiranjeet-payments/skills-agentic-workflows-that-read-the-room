@@ -1,18 +1,18 @@
 ---
 name: update-github-info
 description: Updates GitHub information from latest blog posts and changelog entries
-trigger:
+on:
   schedule:
     - cron: '0 0 * * *'  # Daily at midnight UTC
   workflow_dispatch: {}
+permissions:
+  actions: read
 tools:
-  - gh-proxy:
-      permissions:
-        - contents: write
-        - pull-requests: write
-  - web-fetch: {}
-  - create-pull-request:
-      safe-outputs: true
+  web-fetch:
+  agentic-workflows:
+safe-outputs:
+  create-pull-request:
+    draft: true
 network:
   allowed:
     - github.blog
